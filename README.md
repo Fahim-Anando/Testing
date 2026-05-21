@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lattice
 
-## Getting Started
+AI-native task management — a landing page concept.
 
-First, run the development server:
+**Live:** https://lattice-landing-sigma.vercel.app
+
+A clean, minimal landing page for an AI task-management SaaS, built with the Cursor-inspired paper-and-ink design system in [DESIGN.md](./DESIGN.md).
+
+## Stack
+
+- **Next.js 16** (App Router, Turbopack)
+- **React 19**
+- **Tailwind CSS 4** + design tokens inlined from `DESIGN.md`
+- **Framer Motion** (via `motion`) for entrance, scroll-reveal, marquee, and hover springs
+- **lucide-react** for iconography
+- **next/font** — Inter Tight (sans), Newsreader italic (serif accent), JetBrains Mono (mono)
+
+## Page Structure
+
+12 sections, modeled after the editorial rhythm of cursor.com:
+
+1. Nav (sticky, blurred)
+2. Hero — centered headline, layered window mockups
+3. Trust bar — continuous logo marquee
+4. Feature row — Agents turn ideas into tasks
+5. Feature row — Works autonomously, runs in parallel
+6. Feature row — In every tool, at every step
+7. Feature row — Magically accurate recall
+8. Bento grid — 5 cards (3 + 2 layout), one accent card
+9. Connected — 2-panel workspace + collaboration showcase
+10. Testimonials — 3-card row
+11. Stay on the frontier — 3 mini feature cards
+12. Applied research lab + Final CTA + Footer
+
+## Design Discipline
+
+Per [DESIGN.md](./DESIGN.md):
+
+- Paper canvas (`#FAFAF7`) — never pure white as the page background
+- Single ink color (`#14120B`) carries 95% of type and chrome
+- One italic Newsreader word per heading
+- Mono for eyebrows, file paths, stats, code
+- Borders carry hierarchy; shadows are rare
+- Color reserved for syntax / status: blue (links), green (success), amber (in-progress), crimson (errors)
+
+## Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Deployed on Vercel. To redeploy:
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+./node_modules/.bin/vercel deploy --prod --yes --name lattice-landing
+```
